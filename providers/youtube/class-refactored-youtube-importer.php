@@ -24,7 +24,7 @@ class Refactored_YouTube_Importer extends Refactored_Video_Importer_Provider {
 	public $slug = 'youtube';
 
 	var $settings_args = array(
-		'description' => '<strong>Required for using YouTube</strong>: <a href="https://console.developers.google.com/project">Create a project</a> in the Google Developers Console and copy your API key.',
+		'description' => '<strong>Required for using YouTube</strong>: Create a public API key for YouTube in the <a href="https://console.developers.google.com/project">Google Developers Console</a> and copy your API key. <a href="http://wie.ly/u/ytkey" target="_blank">View Tutorial &rarr;</a>',
 		'fields'      => array(
 			'api_key' => array(
 				'name' => 'API Key',

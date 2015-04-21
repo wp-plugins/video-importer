@@ -3,7 +3,7 @@
 Plugin Name: Video Importer
 Plugin URI: https://refactored.co/plugins/video-importer
 Description: Automatically imports videos from YouTube and Vimeo accounts
-Version: 1.6
+Version: 1.6.1
 Author: Refactored Co.
 Author URI: https://refactored.co
 License: GPL2
@@ -12,7 +12,7 @@ License: GPL2
 // Define
 
 define( 'REFACTORED_VIDEO_IMPORTER_PATH', dirname(__FILE__) );
-define( 'REFACTORED_VIDEO_IMPORTER_VERSION', '1.6' );
+define( 'REFACTORED_VIDEO_IMPORTER_VERSION', '1.6.1' );
 
 // Providers
 require_once( REFACTORED_VIDEO_IMPORTER_PATH . '/php/providers.php' );

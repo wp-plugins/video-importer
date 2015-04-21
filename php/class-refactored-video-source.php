@@ -139,7 +139,7 @@ class Refactored_Video_Source {
 		if ( !$source_id ) {
 			$source_id = $this->source_id;
 		}
-		$video_id = $this::get_latest_video_id( $source_id );
+		$video_id = self::get_latest_video_id( $source_id );
 		if ( $video_id != 0 ) {
 			$timestamp = intval( get_post_meta( $video_id, 'rfvi_video_date', true ) );
 		} else {

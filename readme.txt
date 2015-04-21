@@ -4,7 +4,7 @@ Donate link: http://wie.ly/u/donate
 Tags: videos, automatic, import, importer, youtube, vimeo
 Requires at least: 3.3
 Tested up to: 4.1
-Stable tag: 1.6
+Stable tag: 1.6.1
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -18,14 +18,20 @@ Adding a new source isn't just easy, it's also flexible enough to meet your need
 
 Works with:
 
-YouTube
-* User Uploads
-* Playlists
+**YouTube**
 
-Vimeo
+* User Uploads
+* Playlists (limited support)
+
+**Vimeo**
+
 * User Uploads
 * Groups
 * Channels
+
+= Video Importer Pro =
+
+Development of [Video Importer Pro](https://refactored.co/plugins/video-importer) is underway! Buy today and get access to all the new features as they become available.
 
 == Installation ==
 
@@ -34,6 +40,10 @@ Vimeo
 1. Visit the settings page and enter your YouTube and/or Vimeo API keys
 
 == Frequently Asked Questions ==
+
+= How do I get a YouTube API key? =
+
+We have created an easy to follow [tutorial on creating a YouTube API key](http://wie.ly/u/ytkey).
 
 = How often are videos imported? =
 
@@ -44,6 +54,10 @@ Videos are imported once per hour, but due to the way WordPress schedules events
 YouTube no longer publicly provides video tags.
 
 == Changelog ==
+
+= 1.6.1 =
+* Included YouTube API key tutorial and improved readme.txt
+* Bugfix
 
 = 1.6 =
 * Video Importer is now free with [Video Importer Pro](https://refactored.co/plugins/video-importer) being released as a free upgrade for existing users
