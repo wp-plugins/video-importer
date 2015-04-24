@@ -42,9 +42,23 @@ jQuery(document).ready(function($) {
 			nonce: $this.data('nonce'),
 			source_id: source_id
 		};
+		$this.closest('tr').addClass('rfvi-source-importing');
 		$.post(ajaxurl, data, function(response) {
-			alert( response + ' videos imported' );
-		});
+
+			var el = $('#post-'+response.source_id);
+			var newone = el.clone(true)
+				.removeClass('rfvi-source-importing')
+				.addClass('rfvi-source-imported');
+			el.before(newone);
+			el.remove();
+
+			$('#post-'+response.source_id+' > td.column-videos > strong')
+				.text(response.total_videos+' ('+response.new_videos+' new)')
+			$('#post-'+response.source_id+' > td.column-last_checked > strong')
+				.text(response.last_checked)
+			$('#post-'+response.source_id+' > td.column-last_checked > small')
+				.text('(just now)')
+		}, 'json');
 	});
 
 	//	Delete all from source now AJAX

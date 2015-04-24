@@ -126,6 +126,66 @@
 }
 
 /**
+ * Source Table
+ */
+
+.rfvi-source-importing {
+	opacity: 0.5;
+}
+
+.rfvi-waiting-indicator {
+	display: none;
+}
+
+.rfvi-source-importing .rfvi-waiting-indicator {
+	display: block;
+}
+
+.rfvi-source-importing .rfvi-import-now {
+	display: none;
+}
+
+@-webkit-keyframes flashRowGreen {
+    0% {
+        background-color: #9EE07E;
+    }
+    25% {
+        background-color: #9EE07E;
+    }
+    100% {
+        background-color: #fff;
+    }
+}
+
+@-webkit-keyframes flashRowGreenAlt {
+    0% {
+        background-color: #9EE07E;
+    }
+    25% {
+        background-color: #9EE07E;
+    }
+    100% {
+        background-color: #f9f9f9;
+    }
+}
+
+.rfvi-source-imported {
+  -webkit-animation-name: flashRowGreen;
+    -webkit-animation-duration: 1000ms;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: linear;
+  -moz-animation-name: flashRowGreen;
+    -moz-animation-duration: 1000ms;
+    -moz-animation-iteration-count: 1;
+    -moz-animation-timing-function: linear;
+}
+
+.rfvi-source-imported.alternate {
+  -webkit-animation-name: flashRowGreenAlt;
+  -moz-animation-name: flashRowGreenAlt;
+}
+
+/**
  * Icons
  */
 

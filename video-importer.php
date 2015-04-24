@@ -3,7 +3,7 @@
 Plugin Name: Video Importer
 Plugin URI: https://refactored.co/plugins/video-importer
 Description: Automatically imports videos from YouTube and Vimeo accounts
-Version: 1.6.1
+Version: 1.6.2
 Author: Refactored Co.
 Author URI: https://refactored.co
 License: GPL2
@@ -12,7 +12,7 @@ License: GPL2
 // Define
 
 define( 'REFACTORED_VIDEO_IMPORTER_PATH', dirname(__FILE__) );
-define( 'REFACTORED_VIDEO_IMPORTER_VERSION', '1.6.1' );
+define( 'REFACTORED_VIDEO_IMPORTER_VERSION', '1.6.2' );
 
 // Providers
 require_once( REFACTORED_VIDEO_IMPORTER_PATH . '/php/providers.php' );
@@ -434,7 +434,7 @@ class Refactored_Video_Importer {
 
 			case 'videos' :
 
-				echo '<strong>';
+				echo '<strong class="video-count">';
 				echo Refactored_Video_Source::count_imported_videos( $post_id );
 				echo '</strong>';
 
@@ -455,7 +455,7 @@ class Refactored_Video_Importer {
 				echo $last_imported_date;
 
 				echo '<div class="row-actions">';
-				echo '<span class="import_now"><a href="#" class="rfvi-import-now" data-source-id="' . $post_id . '" data-nonce="' . wp_create_nonce( 'import_source' ) . '">Import Now</a></span>';
+				echo '<span class="import_now"><a href="#" class="rfvi-import-now" data-source-id="' . $post_id . '" data-nonce="' . wp_create_nonce( 'import_source' ) . '">Import Now</a><span class="rfvi-waiting-indicator">Working...</span></span>';
 				echo '</div>';
 
 				break;
@@ -824,7 +824,13 @@ class Refactored_Video_Importer {
 		// Cleared checks
 		$source = $this->get_source( $_POST['source_id'] );
 		$new_videos = $source->import_new_videos();
-		echo count( $new_videos );
+		$response = array(
+			'source_id'    => $source->id,
+			'new_videos'   => count( $new_videos ),
+			'total_videos' => Refactored_Video_Source::count_imported_videos( $source->id ),
+			'last_checked' => date_i18n( __( 'Y-m-d H:i:s' ), intval( get_post_meta( $source->id, 'rfvi_last_checked', true ) ) )
+		);
+		echo json_encode( $response );
 		die();
 	}
 
@@ -981,10 +987,9 @@ class Refactored_Video_Importer {
 		// if( 'edit.php' != $hook )
 		// 	return;
 		// CSS
-		wp_register_style( 'rf_video_importer_editor_css', plugins_url( 'css/source-editor.css', __FILE__ ) );
-		wp_enqueue_style( 'rf_video_importer_editor_css' );
+		wp_enqueue_style( 'rf_video_importer_editor_css', plugins_url( 'css/source-editor.css', __FILE__ ), false, REFACTORED_VIDEO_IMPORTER_VERSION );
 		// JS
-		wp_enqueue_script( 'rf_video_importer_editor_js', plugins_url( 'js/source-editor.js', __FILE__ ) );
+		wp_enqueue_script( 'rf_video_importer_editor_js', plugins_url( 'js/source-editor.js', __FILE__ ), false, REFACTORED_VIDEO_IMPORTER_VERSION );
 	}
 
 	/**

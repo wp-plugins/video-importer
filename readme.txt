@@ -3,8 +3,8 @@ Contributors: sutherlandboswell, refactoredco
 Donate link: http://wie.ly/u/donate
 Tags: videos, automatic, import, importer, youtube, vimeo
 Requires at least: 3.3
-Tested up to: 4.1
-Stable tag: 1.6.1
+Tested up to: 4.2
+Stable tag: 1.6.2
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -33,6 +33,10 @@ Works with:
 
 Development of [Video Importer Pro](https://refactored.co/plugins/video-importer) is underway! Buy today and get access to all the new features as they become available.
 
+= Video Thumbnails =
+
+Fully compatible with our [Video Thumbnails](https://refactored.co/plugins/video-thumbnails) plugin.
+
 == Installation ==
 
 1. Upload the `/video-importer/` directory to the `/wp-content/plugins/` directory
@@ -54,6 +58,9 @@ Videos are imported once per hour, but due to the way WordPress schedules events
 YouTube no longer publicly provides video tags.
 
 == Changelog ==
+
+= 1.6.2 =
+* Improved the "Import Now" feature
 
 = 1.6.1 =
 * Included YouTube API key tutorial and improved readme.txt
