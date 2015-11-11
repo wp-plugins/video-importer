@@ -254,7 +254,9 @@ class Refactored_Video_Source {
 	 * @return int                    The ID of the imported post
 	 */
 	function import_video( $video_array ) {
-		// TODO: $this->log( 'Importing video from source ID ' . $this->id );
+		// Removing filters
+		remove_filter('content_save_pre', 'wp_filter_post_kses');
+		remove_filter('content_filtered_save_pre', 'wp_filter_post_kses');		
 		// Build the post array
 		$post = $this->build_post_array( $video_array );
 		// Insert the post
@@ -265,8 +267,9 @@ class Refactored_Video_Source {
 		$this->set_post_meta( $post_id, $video_array );
 		// Execute an action hook after the video is imported
 		do_action( 'refactored_video_importer/single_video_imported', $post_id, $this->provider->slug, $video_array, $this->id, $this->import_options );
-		// Log
-		// TODO: $this->log( 'Imported new video with a post ID of ' . $post_id );
+		// Adding filters back
+		add_filter('content_save_pre', 'wp_filter_post_kses');
+		add_filter('content_filtered_save_pre', 'wp_filter_post_kses');
 		// Return the new post's ID
 		return $post_id;
 	}
