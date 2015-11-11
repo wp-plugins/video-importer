@@ -186,7 +186,7 @@ class Refactored_YouTube_Importer extends Refactored_Video_Importer_Provider {
 				$result[] = array(
 					'title'       => $video->title,
 					'id'          => $video->resourceId->videoId,
-					'url'         => 'http://youtu.be/' . $video->resourceId->videoId,
+					'url'         => '<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/' . $video->resourceId->videoId . '\" frameborder=\"0\" allowfullscreen></iframe>',
 					'description' => $video->description,
 					'date'        => $date,
 					'tags'        => $tags,
